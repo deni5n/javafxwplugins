@@ -1,0 +1,23 @@
+plugins {
+    id 'org.javamodularity.moduleplugin' version '1.8.11' apply false
+    id 'base'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.javamodularity.moduleplugin'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+tasks.named('wrapper') {
+    gradleVersion = '7.4.2'
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+clean.doFirst {
+    delete "${rootDir}/out"
+}
+

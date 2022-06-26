@@ -1,0 +1,20 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+application {
+    mainClass = "org.domcats.pluginapp.bot.Service1"
+    mainModule = "bot"
+}
+
+dependencies {
+    implementation project(':core')
+}
+
+libsDirName = '/home/deni5n/tmp/tmpmodule/core/build/libs/plugins'
+

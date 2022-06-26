@@ -1,0 +1,10 @@
+plugins {
+    id 'application'
+}
+
+application {
+    mainClass = "org.domcats.pluginapp.core.Main"
+    mainModule = "core"
+}
+
+//libsDirName = '/home/deni5n/tmp/tmpmodule/out'
