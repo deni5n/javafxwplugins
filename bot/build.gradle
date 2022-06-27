@@ -1,5 +1,7 @@
 plugins {
     id 'application'
+    id "org.beryx.jlink" version "2.25.0"
+    id "org.openjfx.javafxplugin" version "0.0.13"
 }
 
 repositories {
@@ -8,8 +10,13 @@ repositories {
 
 
 application {
-    mainClass = "org.domcats.pluginapp.bot.Service1"
+    mainClass = "org.domcats.plugin.PluginA"
     mainModule = "bot"
+}
+
+javafx {
+    version = "18"
+    modules = ['javafx.controls', 'javafx.fxml']
 }
 
 dependencies {

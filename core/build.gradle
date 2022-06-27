@@ -1,10 +1,21 @@
 plugins {
     id 'application'
+    id "org.beryx.jlink" version "2.25.0"
+    id "org.openjfx.javafxplugin" version "0.0.13"
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "18"
+    modules = ['javafx.controls', 'javafx.fxml']
 }
 
 application {
-    mainClass = "org.domcats.pluginapp.core.Main"
+    mainClass = "org.domcats.core.Main"
     mainModule = "core"
 }
-
-//libsDirName = '/home/deni5n/tmp/tmpmodule/out'
+dependencies {
+}

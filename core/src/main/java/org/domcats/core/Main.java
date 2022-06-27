@@ -1,4 +1,4 @@
-package org.domcats.pluginapp.core;
+package org.domcats.core;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -8,13 +8,11 @@ import java.lang.module.ModuleFinder;
 import java.lang.module.ModuleReference;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -27,8 +25,9 @@ public final class Main {
                                             .collect(Collectors.toList());
         Configuration pluginsConfiguration = ModuleLayer.boot().configuration().resolve(pluginsFinder, ModuleFinder.of(), plugins);
         ModuleLayer layer = ModuleLayer.boot().defineModulesWithOneLoader(pluginsConfiguration, ClassLoader.getSystemClassLoader());
-        List<IService> services = IService.getServices(layer);
-        for (IService service : services) {
+        List<Plugin> services = Plugin.getServices(layer);
+        for (Plugin service : services) {
+            System.out.println(service.name());
             service.doJob();
         }
     }

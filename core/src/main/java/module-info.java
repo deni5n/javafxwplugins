@@ -1,9 +1,14 @@
-import org.domcats.pluginapp.core.BasicService;
-import org.domcats.pluginapp.core.IService;
+import org.domcats.core.BasicService;
+import org.domcats.core.Plugin;
 
 
 module core {
-    exports org.domcats.pluginapp.core;
-    uses IService;
-    provides IService with BasicService;
+    requires javafx.graphics;
+    requires javafx.fxml;
+    requires javafx.controls;
+
+    opens org.domcats.core to javafx.fxml;
+    exports org.domcats.core;
+    uses Plugin;
+    provides Plugin with BasicService;
 }

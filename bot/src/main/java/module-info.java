@@ -1,9 +1,16 @@
 
-import org.domcats.pluginapp.core.IService;
-import org.domcats.pluginapp.bot.Service1;
+import org.domcats.core.Plugin;
+import org.domcats.plugin.PluginA;
 
 module bot {
     requires core;
 
-    provides IService with Service1;
+    requires javafx.graphics;
+    requires javafx.fxml;
+    requires javafx.controls;
+
+    opens org.domcats.plugin to javafx.fxml;
+    exports org.domcats.plugin;
+
+    provides Plugin with PluginA;
 }
